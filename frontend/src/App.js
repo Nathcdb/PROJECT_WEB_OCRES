@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React , {useState} from 'react';
+import axios from 'axios';
 
 function App() {
+  const [searchText, setSearchText] = useState("");
+  const API_KEY = "RGAPI-ded5fd24-3e0d-4172-a036-392ed7c3e518"
+
+  function rechercheJoueur(event){
+
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="container">
+          <h1>Nom du site</h1>
+          <h2>Entrez le pseudo d'un joueur</h2>
+          <input type="text" onChange={a => setSearchText(a.target.value)}></input>
+          <button onClick={a => rechercheJoueur(a)}>Chercher</button>
+        </div>
     </div>
   );
 }
