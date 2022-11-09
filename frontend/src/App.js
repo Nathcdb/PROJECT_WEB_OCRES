@@ -4,25 +4,27 @@ import axios from 'axios';
 
 function App() {
   const [searchText, setSearchText] = useState("");
-  const API_KEY = "RGAPI-ded5fd24-3e0d-4172-a036-392ed7c3e518"
+  const API_KEY = "RGAPI-c0f7fe46-f412-49a5-aa86-0ec56bbc92b1"
   const [playerData, setPlayerData] = useState({});
+  const [masteryData, setMasteryData] = useState([]);
 
   function rechercheJoueur(event){
     setPlayerData({});
     var APICallString = "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + searchText + "?api_key=" + API_KEY;
     axios.get(APICallString).then(function (response){
       setPlayerData(response.data);
-    }).catch(function(error){
-      
-    });
-  
-
+    })
+    setMasteryData([]);
+    APICallString = "https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" + playerData.id + "/top?api_key="+ API_KEY;
+    axios.get(APICallString).then(function (response){
+      setMasteryData(response.data);
+    })
   }
 
   return (
     <div className="App">
         <div className="container">
-          <h1>Nom du site</h1>
+          <h1>LoLStats</h1>
           <h2>Entrez le pseudo d'un joueur</h2>
           <div margin = "15px" >
           <input type="text" onChange={e => setSearchText(e.target.value)}></input>
@@ -33,11 +35,21 @@ function App() {
           <p>Joueur introuvable</p>  
           :
           <div id = "widget">
-          <p>{playerData.name}</p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
+            <div>
+              <p>{playerData.name}</p>
+              <img width="100" height="100" src={"http://ddragon.leagueoflegends.com/cdn/12.21.1/img/profileicon/"+playerData.profileIconId+".png"} alt="Icon"></img>
+              <p>Niveau {playerData.summonerLevel}</p>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div>
+            <div>
+            </div>
           </div>
         }
     </div>

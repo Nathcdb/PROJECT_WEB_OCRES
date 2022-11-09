@@ -1,14 +1,17 @@
 .App {
   text-align: center;
+  color:#e8f3f7;
+  background-color: #0F445A;
 }
 
-#widget p {
-  align-items: flex-start;
-  justify-content: space-between;
-  border: 3px solid black;
-  border-radius: 15px;
+#widget div {
+  display:inline-block;
+  vertical-align: middle;
+  border: 3px solid #1d84af;
+  border-radius: 10px;
+  background-color: #1d84af;
   padding: 5px;
-  width: 30%;
+  width: 500px  ;
   height: 250px;
   margin: 15px;
 }
