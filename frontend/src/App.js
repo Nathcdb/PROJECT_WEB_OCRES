@@ -12,12 +12,16 @@ function App() {
 
   return (
     <div className="App">
+<<<<<<< HEAD
         <div className="container">
           <h1>Nom du site</h1>
           <h2>Entrez le pseudo d'un joueur</h2>
           <input type="text" onChange={a => setSearchText(a.target.value)}></input>
           <button onClick={a => rechercheJoueur(a)}>Chercher</button>
         </div>
+=======
+          A vous de jouer !
+>>>>>>> f5da442364ebfaed7d32f7e29ae2b565f8137371
     </div>
   );
 }
