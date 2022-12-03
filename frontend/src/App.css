@@ -1,7 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
   color:#e8f3f7;
   background-color: #0F445A;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 
 #widget div {
@@ -11,7 +18,18 @@
   border-radius: 10px;
   background-color: #1d84af;
   padding: 5px;
-  width: 500px  ;
+  width: 500px;
   height: 250px;
   margin: 15px;
+}
+
+#textwidget p {
+  margin: 10px;
+  vertical-align: middle;
+  border-radius: 10px;
+  padding: 10px;
+}
+.imgRanked {
+  width: 450px;
+  height: 220px;
 }
