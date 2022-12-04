@@ -6,6 +6,7 @@ var cors = require('cors');
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var championsRouter = require("./routes/champions");
 
 var app = express();
 
@@ -17,5 +18,6 @@ app.use(cookieParser());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/champions",championsRouter); 
 
 module.exports = app;

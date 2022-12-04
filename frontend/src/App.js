@@ -4,13 +4,24 @@ import axios from 'axios';
 
 function App() {
   const [searchText, setSearchText] = useState("");
-  const API_KEY = "RGAPI-a81c8af6-c104-47cc-9f00-a595c292e1c2"
+  const [searchTextChamp, setSearchTextChamp] = useState("");
+  const API_KEY = "RGAPI-46d677a1-5cfb-416a-9732-fb4d98b072e7"
   const [playerData, setPlayerData] = useState({});
   const [masteryData, setMasteryData] = useState([]);
   const [rankedData, setRankedData] = useState([]);
+  const [championData, setChampionData] = useState({});
   var rankedsolo;
   var rankedflex;
   var champname;
+  var champMaj;
+
+  function rechercheChamp(event){
+    setChampionData({})
+    var APICallString = "http://localhost:3000/champions/"+ searchTextChamp.toLowerCase();
+    axios.get(APICallString).then(function(response){
+      setChampionData(response.data);
+    })
+  }
 
   function rechercheJoueur(event){
     setRankedData([])
@@ -197,6 +208,12 @@ function App() {
       default : return "Aatrox";
     }
   }
+  function firstlettmaj(champname)
+  {
+    var x = champname;
+    champMaj = x[0].toUpperCase() + champname.slice(1);
+    return champMaj;
+  }
   return (
     <div className="App">
         <div className="container">
@@ -239,7 +256,18 @@ function App() {
             </div>
             <div>
             </div>
-            <div>
+            <div id="textwidget">
+              <h3>ChampFinder</h3>
+              <input type="text" onChange={e => setSearchTextChamp(e.target.value)}></input>
+              <button onClick={e=>rechercheChamp(e)}>Chercher</button>
+              {JSON.stringify(championData)==='{}' ?
+              <p>Champion introuvable</p>
+              :
+              <section>
+              <img width="75" height="75" src={"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/"+firstlettmaj(championData.champion.champ)+".png"} alt="Icon"></img>
+              <p>{firstlettmaj(championData.champion.champ)} est sorti en {championData.champion.yearOfRelease}</p>  
+              </section>
+            }
             </div>
           </div>
 }
