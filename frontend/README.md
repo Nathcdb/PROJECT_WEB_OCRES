@@ -1,16 +1,12 @@
-# Frontend
+Le wireframe est le fichier LoLStats.fig dans le dossier.
+Comme j'étais tout seul je pense que le trello n'était pas nécessaire mais j'en ai tout de même fait un pour gerer mon temps, voici le lien vers celui-ci :
+https://trello.com/invite/b/K3ec0GEz/ATTI40acb74e435f7a3b9826a5bddb56b489C7306EC8/avancement-projet
 
-Ce dossier contiendra la partie frontend de votre projet.
+Je n'ai pas utilisé le storybook ni mangoDB.
 
-Le frontend à été initalisé avec un create-react-app et storybook y est deja installé avec un exemple de stories que vous trouverez dans le repertoire `src/stories`.
+Mon application comporte 6 widgets dont 1 graph et 1 faisant appel à mon API via la methode GET.
+Il faut dans un premier temps rentre le pseudo d'un joueur dans la barre de recherche pour accéder aux widgets.
+Les 6 widgets s'affiche.
+Le widget "ChampFinder" permer de récuperer la date de sortie d'un champion depuis mon api.
 
-Pour commencer utiliser la commande ```yarn``` dans le terminal une fois que vous etes dans 'frontend'.
-
-Storybook est là pour vous aider à prototyper et documenter vos composants. Si nous n'arrivons pas à lancer votre projet, nous pourrons au moins regarder vos composants en fonctionnement.
-Le dossier src/stories sert de modèle et est a remplacer par vos widgets.
-
-## Documentation
-
-Vous pourrez supprimer le contenu de ce README et vous l'approprier en y notant les éléments importants de votre projet. Il est très important de bien documenter un projet !
-
-Inspirez-vous des grands repos open sources qui existent sur github. Les informations qui reviennent souvent sont une description du projet (pourquoi, comment...), la maniere de lancer le projet et eventuellement d'y contribuer, une documentation sur des éléments que vous voulez mettre en avant et pour finir les noms des contributeurs.
+IMPORTANT : il faut lancer dans un premier temps le backend sur le port 3000 puis le frontend sur le port 3001

@@ -1,6 +1,12 @@
 import './App.css';
 import React , {useState} from 'react';
 import axios from 'axios';
+import {Pie} from 'react-chartjs-2';
+import {Chart as ChartJs, Tooltip, Title, ArcElement, Legend} from 'chart.js';
+ChartJs.register(
+  Tooltip, Title, ArcElement, Legend
+);
+
 
 function App() {
   const [searchText, setSearchText] = useState("");
@@ -14,6 +20,36 @@ function App() {
   var rankedflex;
   var champname;
   var champMaj;
+  const opt={
+    plugins: {
+      legend: {
+        labels: {
+          color: 'white'
+        }
+      }
+    }
+ }
+
+
+  function graph(lp){
+  const data = {
+    datasets: [{
+        data: [100-lp, lp],
+        backgroundColor:[
+          '#000C66',
+          'blue'
+        ]
+    },
+  ],
+  // These labels appear in the legend and in the tooltips when hovering different arcs
+  labels: [
+      'LP manquant',
+      'LP actuel'
+  ], 
+
+  };
+  return data;
+}
 
   function rechercheChamp(event){
     setChampionData({})
@@ -255,8 +291,9 @@ function App() {
               <p>Ranked Flex : {rankedData[0].tier} {rankedData[0].rank} {rankedData[0].leaguePoints} LP</p>
             </div>
             <div>
+              <Pie id="graph" data={graph(rankedData[1].leaguePoints)} options={opt}/>
             </div>
-            <div id="textwidget">
+            <div>
               <h3>ChampFinder</h3>
               <input type="text" onChange={e => setSearchTextChamp(e.target.value)}></input>
               <button onClick={e=>rechercheChamp(e)}>Chercher</button>
