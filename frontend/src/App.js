@@ -11,7 +11,7 @@ ChartJs.register(
 function App() {
   const [searchText, setSearchText] = useState("");
   const [searchTextChamp, setSearchTextChamp] = useState("");
-  const API_KEY = "RGAPI-46d677a1-5cfb-416a-9732-fb4d98b072e7"
+  const API_KEY = "RGAPI-e8137531-a098-4117-81cc-8f34054ad1a2"
   const [playerData, setPlayerData] = useState({});
   const [masteryData, setMasteryData] = useState([]);
   const [rankedData, setRankedData] = useState([]);

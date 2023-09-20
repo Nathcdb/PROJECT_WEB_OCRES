@@ -650,7 +650,7 @@ let champions =[];
           // Return movie
           res.status(200).json({
             message: 'champion found!',
-            champion 
+            champion
           });
         } else {
           res.status(404).json({
